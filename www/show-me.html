@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>{{ title }}</title> 
+</head>
+<body>
+    {% set color = frappe.form_dict.color or "black" %}
+    {% if not color %}
+        {% set color = "black" %}
+    {% endif %}
+    <div style="width: 500px; height: 200px; 
+          background-color: {{ color }};">
+    </div>
+</body>
+</html>
+
+

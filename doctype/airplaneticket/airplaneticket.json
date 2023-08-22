@@ -1,0 +1,275 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "format:{source_airport_code}-To-{destination_airport_code}-{###}",
+ "creation": "2023-08-03 09:14:06.650769",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "passenger",
+  "column_break_5m8v4",
+  "flight",
+  "section_break_2rm0x",
+  "source_airport",
+  "source_airport_code",
+  "column_break_ku0sz",
+  "destination_airport",
+  "destination_airport_code",
+  "section_break_c3b9k",
+  "departure_date",
+  "departure_time",
+  "column_break_nxpzo",
+  "seat",
+  "duration",
+  "status",
+  "section_break_mmct3",
+  "flight_price",
+  "add_ons",
+  "column_break_hpizw",
+  "total_add_on_amount",
+  "section_break_3nbna",
+  "total_amount",
+  "column_break_fgvvt",
+  "route",
+  "is_publishedd"
+ ],
+ "fields": [
+  {
+   "fieldname": "passenger",
+   "fieldtype": "Link",
+   "label": "Passenger",
+   "options": "Flight Passenger"
+  },
+  {
+   "fetch_from": "source_airport.code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Airport Code"
+  },
+  {
+   "fetch_from": "destination_airport.code",
+   "fieldname": "destination_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Destination Airport Code"
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "label": "Flight",
+   "options": "Airplane"
+  },
+  {
+   "fetch_from": "flight.date_of_departure",
+   "fieldname": "departure_date",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fetch_from": "flight.time_of_departure",
+   "fieldname": "departure_time",
+   "fieldtype": "Time",
+   "label": "Departure Time"
+  },
+  {
+   "fetch_from": "flight.duration",
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration of Flight"
+  },
+  {
+   "fieldname": "column_break_5m8v4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_2rm0x",
+   "fieldtype": "Section Break",
+   "label": "AIRPORT DETAILS"
+  },
+  {
+   "fieldname": "column_break_ku0sz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_c3b9k",
+   "fieldtype": "Section Break",
+   "label": "FLIGHT DETAILS"
+  },
+  {
+   "fieldname": "column_break_nxpzo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Booked",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Booked\nChecked-In\nBoarded"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_add_on_amount",
+   "fieldtype": "Currency",
+   "label": "Total Add on Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add on",
+   "options": "Airplane Ticket Add on Item"
+  },
+  {
+   "fieldname": "section_break_3nbna",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_mmct3",
+   "fieldtype": "Section Break",
+   "label": "FLIGHT PRICE"
+  },
+  {
+   "fieldname": "column_break_hpizw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "name",
+   "options": "{flight}.-.{source_airport_code}.-..to..-.{destination_airport_code}.-.{##}"
+  },
+  {
+   "fieldname": "source_airport",
+   "fieldtype": "Link",
+   "label": "Source Airport",
+   "options": "Source Airport"
+  },
+  {
+   "fieldname": "destination_airport",
+   "fieldtype": "Link",
+   "label": "Destination Airport",
+   "options": "Destination Airport"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "route"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_publishedd",
+   "fieldtype": "Check",
+   "label": "Is Publishedd"
+  },
+  {
+   "fieldname": "column_break_fgvvt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "is_publishedd",
+ "links": [],
+ "modified": "2023-08-10 20:12:42.957600",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "AirplaneTicket",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "role": "fleet manager",
+   "select": 1,
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "passenger",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Booked"
+  },
+  {
+   "color": "Purple",
+   "title": "Checked-In"
+  },
+  {
+   "color": "Green",
+   "title": "Boarded"
+  }
+ ]
+}
